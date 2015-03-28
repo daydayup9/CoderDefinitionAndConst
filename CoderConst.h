@@ -12,3 +12,5 @@ extern NSString * const kAPPKEY;
 
 /** 定义一个API */
 extern NSString * const kAPPURL;
+
+//干什么呀这是？
