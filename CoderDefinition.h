@@ -241,7 +241,7 @@ static dispatch_once_t onceToken; \
 dispatch_once(&onceToken, ^{ \
 if (_instance == nil) \
 { \
-_instance = [self alloc] init]; \
+_instance = [[self alloc] init]; \
 } \
 }); \
 return _instance; \
@@ -259,7 +259,7 @@ _instance = [super allocWithZone:zone]; \
 return _instance; \
 } \
 \
--(oneway void)release \
+- (oneway void)release \
 { \
 } \
 \
@@ -288,12 +288,13 @@ return 1; \
 
 #define singleton_m_GCD(name) \
 static id _instance = nil; \
-+ (instancetype)shared##name{ \
++ (instancetype)shared##name \
+{ \
 static dispatch_once_t onceToken; \
 dispatch_once(&onceToken, ^{ \
 if (_instance == nil) \
 { \
-_instance = [self alloc] init]; \
+_instance = [[self alloc] init]; \
 } \
 }); \
 return _instance; \
@@ -311,7 +312,7 @@ _instance = [super allocWithZone:zone]; \
 return _instance; \
 } \
 \
-+(id)copyWithZone:(struct _NSZone *)zone \
++ (id)copyWithZone:(struct _NSZone *)zone \
 { \
 return _instance; \
 } 
@@ -332,7 +333,7 @@ static id _instance = nil; \
 { \
 if (_instance == nil) \
 { \
-_instance = [self alloc] init]; \
+_instance = [[self alloc] init]; \
 } \
 } \
 return _instance; \
@@ -369,7 +370,7 @@ return _instance; \
 return _instance; \
 } \
 \
--(NSUInteger)retainCount \
+- (NSUInteger)retainCount \
 { \
 return 1; \
 }
@@ -384,7 +385,7 @@ static id _instance = nil; \
 { \
 if (_instance == nil) \
 { \
-_instance = [self alloc] init]; \
+_instance = [[self alloc] init]; \
 } \
 } \
 return _instance; \
@@ -402,7 +403,7 @@ _instance = [super allocWithZone:zone]; \
 return _instance; \
 } \
 \
-+(id)copyWithZone:(struct _NSZone *)zone \
++ (id)copyWithZone:(struct _NSZone *)zone \
 { \
 return _instance; \
 }
